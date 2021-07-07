@@ -1,0 +1,5 @@
+export * from '@/core/components/user-account/usecases/add-account/add-account'
+export * from '@/core/components/user-account/domain/account'
+export * from '@/core/ports/criptography/hasher'
+export * from '@/core/components/user-account/repositories/add-account-repository'
+export * from '@/core/components/user-account/repositories/load-account-by-email-repository'
