@@ -2,8 +2,8 @@ import { SignUpController } from './signup-controller'
 import { AddAccount, Validation, Authentication } from './signup-controller-protocols'
 import { MissingParamError, ServerError, EmailInUseError } from '@/user-interface/common/errors'
 import { HttpRequest } from '@/user-interface/common/interfaces'
-import { ok, serverError, badRequest, forbidden } from '@/user-interface/common/helpers/http/http-helper'
-import { mockAuthentication, mockValidation, mockAddAccount , throwError } from '@/tests'
+import { ok, serverError, badRequest, forbidden } from '@/user-interface/common/helpers/http-helper'
+import { mockAuthentication, mockValidation, mockAddAccount , throwError } from '@/core/components/user-account/tests.mocks'
 
 const makeFakeRequest = (): HttpRequest => ({
   body: {

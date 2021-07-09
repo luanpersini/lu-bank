@@ -19,33 +19,34 @@
       - Controllers
         - component-name
             - controller-name
-              [x]xopen-account-controller
-              [x]xopen-account-controller.spec
-              [x]xopen-account-controller-protocols
+            * [ ] open-account-controller
+            * [ ] open-account-controller.spec
+            * [ ] open-account-controller-protocols
               - factories
-                [x] open-account-controller-factory            
+              * [ ] open-account-controller-factory            
 - infra
   - Server
     - config
       - routes
-        [x] bank-account-routes
+      * [ ] bank-account-routes
+      * [ ] bank-account-routes.test
   - usecases-factory
-    [ ] bank-account
-      [ ] usecase-name
+    * [ ] bank-account
+     * [ ] usecase-name
 - core
   - components
     - component-name
       - domain
-        [x] models (entities, aggregates e value objects)
+        * [ ] models (entities, aggregates e value objects)
         - bank-account
       - usecase-name
-        [x] open-account interface
-        [x] open-account-usecase
-        [x] open-account-usecase.spec 
-        [x] open-account-usecase-protocols
+        * [ ] open-account interface
+        * [ ] open-account-usecase
+        * [ ] open-account-usecase.spec 
+        * [ ] open-account-usecase-protocols
       - repositories
-        [x] usecase-repository-i
-        [x] open-account-repository
+        * [ ] usecase-repository-i
+        * [ ] open-account-repository
         - infra.repositories
-          [x] bank-account-mongo-repository
-          [x] bank-account-mongo-repository.spec
+          * [ ] bank-account-mongo-repository
+          * [ ] bank-account-mongo-repository.spec

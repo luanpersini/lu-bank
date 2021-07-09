@@ -1,9 +1,9 @@
 import { LoginController } from './login-controller'
 import { HttpRequest, Authentication, Validation } from '@/user-interface/api/controllers/user-access/login/login-controller-protocols'
-import { badRequest, serverError, unauthorized } from '@/user-interface/common/helpers/http/http-helper'
+import { badRequest, serverError, unauthorized } from '@/user-interface/common/helpers/http-helper'
 import { MissingParamError } from '@/user-interface/common/errors'
-import { mockValidation, throwError } from '@/tests'
-import { mockAuthentication } from '@/tests/mock-user-account-usecases'
+import { mockValidation, throwError } from '@/core/components/user-account/tests.mocks'
+import { mockAuthentication } from '@/core/components/user-account/tests.mocks/mock-user-account-usecases'
 
 const mockRequest = (): HttpRequest => ({
   body: {

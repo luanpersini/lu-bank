@@ -1,6 +1,6 @@
 import { DbAddAccount } from './db-add-account'
 import { Hasher, AddAccountRepository, LoadAccountByEmailRepository } from './db-add-account-protocols'
-import { mockHasher, mockAddAccountRepository, mockLoadAccountByEmailRepository , mockAccountModel, mockAddAccountParams, throwError } from '@/tests'
+import { mockHasher, mockAddAccountRepository, mockLoadAccountByEmailRepository , mockAccountModel, mockAddAccountParams, throwError } from '@/core/components/user-account/tests.mocks'
 
 type SutTypes = {
   sut: DbAddAccount

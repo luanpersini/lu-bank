@@ -1,8 +1,8 @@
 import { LogControllerDecorator } from './log-controller-decorator'
 import { Controller, HttpRequest, HttpResponse } from '@/user-interface/common/interfaces'
-import { serverError, ok } from '@/user-interface/common/helpers/http/http-helper'
+import { serverError, ok } from '@/user-interface/common/helpers/http-helper'
 import { LogErrorRepository } from '@/user-interface/common/decorators/log-error-repository'
-import { mockLogErrorRepository, mockAccountModel } from '@/tests'
+import { mockLogErrorRepository, mockAccountModel } from '@/core/components/user-account/tests.mocks'
 
 const makeController = (): Controller => {
   class ControllerStub implements Controller {

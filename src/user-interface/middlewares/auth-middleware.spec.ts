@@ -1,8 +1,8 @@
 import { AuthMiddleware } from './auth-middleware'
 import { LoadAccountByToken, HttpRequest } from './auth-middleware-protocols'
-import { forbidden, ok, serverError } from '@/user-interface/common/helpers/http/http-helper'
+import { forbidden, ok, serverError } from '@/user-interface/common/helpers/http-helper'
 import { AccessDeniedError } from '@/user-interface/common/errors'
-import { mockLoadAccountByToken , throwError } from '@/tests'
+import { mockLoadAccountByToken , throwError } from '@/core/components/user-account/tests.mocks'
 
 const makeFakeRequest = (): HttpRequest => ({
   headers: {

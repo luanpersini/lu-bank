@@ -1,6 +1,6 @@
 import { DbAuthentication } from './db-authentication'
 import { LoadAccountByEmailRepository, HashComparer, Encrypter, UpdateAccessTokenRepository } from './db-authentication-protocols'
-import { mockHashComparer, mockEncrypter, mockLoadAccountByEmailRepository, mockUpdateAccessTokenRepository , throwError, mockAuthenticationParams } from '@/tests'
+import { mockHashComparer, mockEncrypter, mockLoadAccountByEmailRepository, mockUpdateAccessTokenRepository , throwError, mockAuthenticationParams } from '@/core/components/user-account/tests.mocks'
 
 type SutTypes = {
   sut: DbAuthentication

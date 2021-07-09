@@ -4,7 +4,7 @@ import { LoadAccountByTokenRepository } from '@/core/components/user-account/rep
 import { UpdateAccessTokenRepository } from '@/core/components/user-account/repositories/update-access-token-repository'
 import { AddAccountParams } from '@/core/components/user-account/usecases/add-account/add-account'
 import { AccountModel } from '@/core/components/user-account/domain/account'
-import { mockAccountModel } from '@/tests'
+import { mockAccountModel } from '@/core/components/user-account/tests.mocks'
 
 export const mockAddAccountRepository = (): AddAccountRepository => {
   class AddAccountRepositoryStub implements AddAccountRepository {
