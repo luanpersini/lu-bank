@@ -4,7 +4,7 @@ import { HttpRequest } from '@/user-interface/common/interfaces'
 import { forbidden, serverError } from '@/user-interface/common/helpers/http-helper'
 import { OpenAccount } from '@/core/components/bank-account/usecases/open-account/open-account'
 import { ServerError } from '@/user-interface/common/errors'
-import { UserIdInUseError } from '@/user-interface/common/errors/userid-in-use-error'
+import { AssociatedAccountError } from '@/user-interface/common/errors/associated-account-error'
 
 type SutTypes = {
   sut: OpenAccountController
@@ -40,11 +40,11 @@ describe('openAccount.open', () => {
     const httpResponse = await sut.handle(mockFakeRequest())
     expect(httpResponse).toEqual(serverError(new ServerError(null)))
   })
-  test('should return 403 if openAccount returns null - UserIdInUseError', async () => {
+  test('should return 403 if openAccount returns null -  Associated Account Error', async () => {
     const { sut, openAccountStub } = makeSut()
     jest.spyOn(openAccountStub, 'open').mockReturnValueOnce(Promise.resolve(null))
     const httpResponse = await sut.handle(mockFakeRequest())
-    expect(httpResponse).toEqual(forbidden(new UserIdInUseError()))
+    expect(httpResponse).toEqual(forbidden(new AssociatedAccountError()))
   })
   /*
 

@@ -1,7 +1,7 @@
 import { HttpResponse, HttpRequest, Controller } from './open-account-controller-protocols'
 import { OpenAccount } from '@/core/components/bank-account/usecases/open-account/open-account'
 import { forbidden, serverError } from '@/user-interface/common/helpers/http-helper'
-import { UserIdInUseError } from '@/user-interface/common/errors/userid-in-use-error'
+import { AssociatedAccountError } from '@/user-interface/common/errors/associated-account-error'
 
 export class OpenAccountController implements Controller {
   constructor (
@@ -13,7 +13,7 @@ export class OpenAccountController implements Controller {
       const { userId } = httpRequest
       const bankAccount = await this.openAccount.open(userId)
       if (!bankAccount) {
-        return forbidden(new UserIdInUseError())
+        return forbidden(new AssociatedAccountError())
       }
       return null
     } catch (error) {
