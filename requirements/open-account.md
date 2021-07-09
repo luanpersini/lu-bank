@@ -3,7 +3,7 @@
 ## Caso de sucesso
 
 1. - [ ] Recebe uma requisição do tipo **POST** na rota **/api/open-account**
-2. - [ ] **Valida** se já existe uma conta bancária com o userId fornecido
+2. - [ ] **Valida** se já existe uma conta bancária com o userId fornecido. 
 3. - [ ] Cria uma **conta bancária** para o usuário logado
 4. - [ ] Retorna **200** com os dados da conta bancária criada
 <br/>
