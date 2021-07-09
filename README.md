@@ -1,3 +1,4 @@
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/luanpersini/lu-bank)
 [![Build Status](https://travis-ci.com/luanpersini/lu-bank.svg?branch=main)](https://travis-ci.com/luanpersini/lu-bank)
 [![Coverage Status](https://coveralls.io/repos/github/luanpersini/lu-bank/badge.svg?branch=main)](https://coveralls.io/github/luanpersini/lu-bank?branch=main)
 
