@@ -1,7 +1,7 @@
-import { mockOpenAccount } from '@/core/components/bank-account/tests.mocks'
+import { mockBankAccountModel, mockOpenAccount } from '@/core/components/bank-account/tests.mocks'
 import { OpenAccountController } from './open-account-controller'
 import { HttpRequest } from '@/user-interface/common/interfaces'
-import { forbidden, serverError } from '@/user-interface/common/helpers/http-helper'
+import { forbidden, ok, serverError } from '@/user-interface/common/helpers/http-helper'
 import { OpenAccount } from '@/core/components/bank-account/usecases/open-account/open-account'
 import { ServerError } from '@/user-interface/common/errors'
 import { AssociatedAccountError } from '@/user-interface/common/errors/associated-account-error'
@@ -46,6 +46,12 @@ describe('openAccount.open', () => {
     const httpResponse = await sut.handle(mockFakeRequest())
     expect(httpResponse).toEqual(forbidden(new AssociatedAccountError()))
   })
+  test('should return 200 and a bankAccount on openAccount success', async () => {
+    const { sut } = makeSut()
+    const httpResponse = await sut.handle(mockFakeRequest())
+    expect(httpResponse).toEqual(ok(mockBankAccountModel()))
+  })
+
   /*
 
   describe('openAccount.open', () => {
