@@ -1,33 +1,39 @@
-// import { OpenAccountController } from './open-account-controller'
-// import { HttpRequest } from '@/user-interface/common/interfaces'
-// import { serverError } from '@/user-interface/common/helpers/http/http-helper'
-// import { mockOpenAccount } from '@/tests/mock-db-bank-account'
-// import { OpenAccount } from '@/core/components/bank-account/usecases/open-account/open-account'
+import { mockOpenAccount } from '@/core/components/bank-account/tests.mocks'
+import { OpenAccountController } from './open-account-controller'
+import { HttpRequest } from '@/user-interface/common/interfaces'
+// import { serverError } from '@/user-interface/common/helpers/http-helper'
+import { OpenAccount } from '@/core/components/bank-account/usecases/open-account/open-account'
 // import { ServerError } from '@/user-interface/common/errors'
-// import { mockLoadAccountByTokenRepository } from '@/tests'
 
-/*
 type SutTypes = {
   sut: OpenAccountController
+  openAccountStub: OpenAccount
 }
 
 const makeSut = (): SutTypes => {
-  // const authenticationStub = mockAuthentication()
-  // const openAccountStub = mockOpenAccount()
-  // const loadAccountByTokenRepositoryStub = mockLoadAccountByTokenRepository()
-  const sut = new OpenAccountController()
+  const openAccountStub = mockOpenAccount()
+  const sut = new OpenAccountController(openAccountStub)
   return {
-    sut
+    sut,
+    openAccountStub
   }
 }
-*/
-describe('OpenAccount Controller', () => {
-  test('no test yet', async () => {
-    const Spy = 2 + 2
-    expect(Spy).toBe(4)
+
+const mockFakeRequest = (): HttpRequest => ({
+  body: {},
+  userId: 'any_userId'
+})
+
+describe('openAccount.open', () => {
+  test('Should call openAccount with correct userId', async () => {
+    const { sut, openAccountStub } = makeSut()
+    const Spy = jest.spyOn(openAccountStub, 'open')
+    await sut.handle(mockFakeRequest())
+    expect(Spy).toHaveBeenCalledWith('any_userId')
   })
+
   /*
-  test('Should call loadBankAccountByUserId with correct userId', async () => {
+ test('Should call loadBankAccountByUserId with correct value', async () => {
     const { sut } = makeSut()
     const Spy = jest.spyOn(loadBankAccountByUserId, 'open')
     await sut.handle(mockFakeRequest())
