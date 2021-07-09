@@ -8,6 +8,6 @@ export const mockBankAccountModel = (): BankAccountModel => ({
     name: 'any_name',
     address: 'any_address'
   },
-  openedAt: new Date(),
+  openedAt: new Date('2021-07-09T20:22:42.844Z'),
   balance: 1000
 })
