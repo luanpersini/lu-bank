@@ -1,10 +1,10 @@
 import { BankAccountModel } from '@/core/components/bank-account/domain/bank-account'
 // import { MongoHelper } from '@/infra/persistence/db/helpers/mongo-helper'
-import { LoadBankAccountByUserIdRepository } from '../load-bank-account-by-userid-repository'
-import { OpenAccountRepository, OpenBankAccountParams } from '../open-account-repository'
+import { LoadAccountByUserIdRepository } from '../load-bank-account-by-userid-repository'
+import { OpenAccountRepository } from '../open-account-repository'
 
-export class BankAccountMongoRepository implements OpenAccountRepository, LoadBankAccountByUserIdRepository {
-  async open (bankAccount: OpenBankAccountParams): Promise<BankAccountModel> {
+export class BankAccountMongoRepository implements OpenAccountRepository, LoadAccountByUserIdRepository {
+  async open (bankAccount: BankAccountModel): Promise<BankAccountModel> {
     //  2. - [ ] **Valida** se já existe uma conta bancária com o userId fornecido
     //  3. - [ ] Cria uma **conta bancária** para o usuário logado
     const mockBankAccountModel = ({

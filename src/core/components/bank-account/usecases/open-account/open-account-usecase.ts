@@ -1,34 +1,28 @@
 import { mockBankAccountModel } from '../../tests.mocks'
-import { BankAccountModel, LoadBankAccountByUserIdRepository, OpenAccount } from './open-account-usecase-protocols'
+import { BankAccountModel, LoadAccountByUserIdRepository, OpenAccount, OpenAccountRepository } from './open-account-usecase-protocols'
 export class OpenAccountUsecase implements OpenAccount {
   constructor (
-    private readonly loadBankAccountByUserIdRepository: LoadBankAccountByUserIdRepository
-    // private readonly openAccountRepository: OpenAccountRepository
+    private readonly loadAccountByUserIdRepository: LoadAccountByUserIdRepository,
+    private readonly openAccountRepository: OpenAccountRepository
   ) {}
 
   async open (userId: string): Promise<BankAccountModel> {
-    const bankAccountExists = await this.loadBankAccountByUserIdRepository.loadByUserId(userId)
+    const bankAccountExists = await this.loadAccountByUserIdRepository.loadByUserId(userId)
     if (!bankAccountExists) {
-      return mockBankAccountModel()
-    }
-    return Promise.resolve(null)
-  }
-}
-
-/*
-    const bankAccount = await this.loadBankAccountByUserIdRepository.loadByUserId(userId)
-    if (!bankAccount) {
-      const bankAccountData: OpenBankAccountParams = ({
+      await this.openAccountRepository.open({
         userId: userId,
-        account: 'generate_random_account',
+        // generate a random 8 digit string with the last 8 digits of the unix seconds
+        account: String(new Date().getTime()).substring(String(new Date().getTime()).length - 8, String(new Date().getTime()).length),
         agency: {
           number: '0000-1',
           name: 'Digital',
           address: 'Digital'
         },
+        openedAt: new Date(),
         balance: 1000
       })
-      const newBankAccount = await this.openAccountRepository.open(bankAccountData)
-      return newBankAccount
+      return mockBankAccountModel()
     }
-    */
+    return Promise.resolve(null)
+  }
+}

@@ -3,6 +3,7 @@ import { OpenAccountController } from './open-account-controller'
 import { forbidden, ok, serverError } from '@/user-interface/common/helpers/http-helper'
 import { HttpRequest, OpenAccount, AssociatedAccountError } from './open-account-controller-protocols'
 import { ServerError } from '@/user-interface/common/errors'
+import MockDate from 'mockdate'
 
 type SutTypes = {
   sut: OpenAccountController
@@ -24,6 +25,14 @@ const mockFakeRequest = (): HttpRequest => ({
 })
 
 describe('openAccount.open', () => {
+  beforeAll(() => {
+    MockDate.set(new Date())
+  })
+
+  afterAll(() => {
+    MockDate.reset()
+  })
+
   test('should call openAccount with correct value', async () => {
     const { sut, openAccountStub } = makeSut()
     const Spy = jest.spyOn(openAccountStub, 'open')
@@ -49,16 +58,4 @@ describe('openAccount.open', () => {
     const httpResponse = await sut.handle(mockFakeRequest())
     expect(httpResponse).toEqual(ok(mockBankAccountModel()))
   })
-
-  /*
-    import MockDate from 'mockdate'
-
-   beforeAll(() => {
-    MockDate.set(new Date())
-  })
-
-  afterAll(() => {
-    MockDate.reset()
-  })
-  */
 })
