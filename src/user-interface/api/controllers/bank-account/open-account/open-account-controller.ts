@@ -1,7 +1,5 @@
-import { HttpResponse, HttpRequest, Controller } from './open-account-controller-protocols'
-import { OpenAccount } from '@/core/components/bank-account/usecases/open-account/open-account'
+import { HttpResponse, HttpRequest, Controller, OpenAccount, AssociatedAccountError } from './open-account-controller-protocols'
 import { forbidden, ok, serverError } from '@/user-interface/common/helpers/http-helper'
-import { AssociatedAccountError } from '@/user-interface/common/errors/associated-account-error'
 
 export class OpenAccountController implements Controller {
   constructor (

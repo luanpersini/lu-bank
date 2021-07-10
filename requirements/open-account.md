@@ -19,8 +19,8 @@
       - Controllers
         - component-name
             - controller-name
-            * [ ] open-account-controller
-            * [ ] open-account-controller.spec
+            * [x] open-account-controller
+            * [x] open-account-controller.spec
             * [ ] open-account-controller-protocols
               - factories
               * [ ] open-account-controller-factory            

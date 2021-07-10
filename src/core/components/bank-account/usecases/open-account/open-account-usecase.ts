@@ -1,15 +1,22 @@
-// import { BankAccountModel, OpenAccount, LoadAccountByUserIdRepository, OpenAccountRepository, OpenBankAccountParams } from './open-account-usecase-protocols'
-import { BankAccountModel, OpenAccount } from './open-account-usecase-protocols'
+import { mockBankAccountModel } from '../../tests.mocks'
+import { BankAccountModel, LoadBankAccountByUserIdRepository, OpenAccount } from './open-account-usecase-protocols'
 export class OpenAccountUsecase implements OpenAccount {
-  /*
   constructor (
-    private readonly loadAccountByUserIdRepository: LoadAccountByUserIdRepository,
-    private readonly openAccountRepository: OpenAccountRepository
+    private readonly loadBankAccountByUserIdRepository: LoadBankAccountByUserIdRepository
+    // private readonly openAccountRepository: OpenAccountRepository
   ) {}
-*/
+
   async open (userId: string): Promise<BankAccountModel> {
-    /*
-    const bankAccount = await this.loadAccountByUserIdRepository.loadByUserId(userId)
+    const bankAccountExists = await this.loadBankAccountByUserIdRepository.loadByUserId(userId)
+    if (!bankAccountExists) {
+      return mockBankAccountModel()
+    }
+    return Promise.resolve(null)
+  }
+}
+
+/*
+    const bankAccount = await this.loadBankAccountByUserIdRepository.loadByUserId(userId)
     if (!bankAccount) {
       const bankAccountData: OpenBankAccountParams = ({
         userId: userId,
@@ -25,6 +32,3 @@ export class OpenAccountUsecase implements OpenAccount {
       return newBankAccount
     }
     */
-    return null
-  }
-}
