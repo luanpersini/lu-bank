@@ -12,11 +12,8 @@ export class BankAccountMongoRepository implements OpenAccountRepository, LoadAc
   }
 
   async loadByUserId (userId: string): Promise<BankAccountModel> {
-    /*
     const bankAccountCollection = await MongoHelper.getCollection('bank-account')
     const bankAccount = await bankAccountCollection.findOne({ userId })
-    return bankAccount && MongoHelper.map(bankAccount)
-    */
-    return null
+    return bankAccount
   }
 }
