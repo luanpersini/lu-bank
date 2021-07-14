@@ -49,51 +49,11 @@ describe('BankAccount Mongo Repository', () => {
       expect(bankAccount.agency).toEqual(mockAgency())
       expect(bankAccount.balance).toBeGreaterThanOrEqual(0)
     })
+    test('should return null if loadByUserId dont find an bank account', async () => {
+      const sut = makeSut()
+      const bankAccount = await sut.loadByUserId('any_userId')
+      expect(bankAccount).toBeFalsy()
+    })
   })
-
 // End
 })
-/*
-  describe('loadByEmail()', () => {
-    test('should return an account on loadByEmail success', async () => {
-      const sut = makeSut()
-      await accountCollection.insertOne(mockBankAccountModel())
-      const account = await sut.loadByEmail('any_email@mail.com')
-      expect(account).toBeTruthy()
-      expect(account.id).toBeTruthy()
-      expect(account.name).toBe('any_name')
-      expect(account.cpf).toBe('any_cpf')
-      expect(account.email).toBe('any_email@mail.com')
-      expect(account.password).toBe('any_password')
-    })
-
-    test('should return null if loadByEmail fails', async () => {
-      const sut = makeSut()
-      const account = await sut.loadByEmail('any_email@mail.com')
-      expect(account).toBeFalsy()
-    })
-  })
-
-  describe('loadByToken()', () => {
-    test('should return an account on loadByToken', async () => {
-      const sut = makeSut()
-      await accountCollection.insertOne({
-        name: 'any_name',
-        cpf: 'any_cpf',
-        email: 'any_email@mail.com',
-        password: 'any_password',
-        accessToken: 'any_token'
-      })
-      const account = await sut.loadByToken('any_token')
-      expect(account).toBeTruthy()
-      expect(account.id).toBeTruthy()
-      expect(account.name).toBe('any_name')
-      expect(account.cpf).toBe('any_cpf')
-      expect(account.email).toBe('any_email@mail.com')
-      expect(account.password).toBe('any_password')
-    })
-
-     })
-  })
-})
-*/
