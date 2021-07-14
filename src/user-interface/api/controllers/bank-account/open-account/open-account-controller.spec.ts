@@ -32,7 +32,6 @@ describe('openAccount.open', () => {
   afterAll(() => {
     MockDate.reset()
   })
-
   test('should call openAccount with correct value', async () => {
     const { sut, openAccountStub } = makeSut()
     const Spy = jest.spyOn(openAccountStub, 'open')

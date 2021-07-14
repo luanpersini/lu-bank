@@ -13,7 +13,6 @@ export class OpenAccountController implements Controller {
       if (!bankAccount) {
         return forbidden(new AssociatedAccountError())
       }
-      console.log(bankAccount)
 
       return ok(bankAccount)
     } catch (error) {
