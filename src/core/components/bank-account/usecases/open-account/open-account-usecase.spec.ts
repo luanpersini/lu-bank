@@ -54,17 +54,10 @@ describe('OpenAccount Usecase', () => {
     await sut.open('any_userId')
     expect(Spy).toHaveBeenCalledWith(mockBankAccountModel())
   })
+  test('should return a bank account on OpenAccountRepository success', async () => {
+    const { sut } = makeSut()
+    const account = await sut.open('any_userId')
+    expect(account).toEqual(mockBankAccountModel())
+  })
 // End
 })
-/*
-To Do
-//should call LoadAccountByUserIdRepository with correct value'
-//should throw if LoadAccountByUserIdRepository throws - ensure there is no try catch
-//should return an account on success
-
-  test('should return an account on success', async () => {
-    const { sut } = makeSut()
-    const account = await sut.add(mockAddAccountParams())
-    expect(account).toEqual(mockAccountModel())
-  })
-*/
