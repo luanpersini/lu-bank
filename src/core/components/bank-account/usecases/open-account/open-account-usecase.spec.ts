@@ -59,5 +59,11 @@ describe('OpenAccount Usecase', () => {
     const account = await sut.open('any_userId')
     expect(account).toEqual(mockBankAccountModel())
   })
+  test('should throw if OpenAccountRepository throws - ensure there is no try catch', async () => {
+    const { sut, openAccountRepositoryStub } = makeSut()
+    jest.spyOn(openAccountRepositoryStub, 'open').mockImplementationOnce(throwError)
+    const promise = sut.open('any_userId')
+    await expect(promise).rejects.toThrow()
+  })
 // End
 })
