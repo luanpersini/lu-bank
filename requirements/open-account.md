@@ -45,8 +45,8 @@
       - usecase-name
         * [x] open-account interface
         * [x] open-account-usecase
-        * [ ] open-account-usecase.spec 
-        * [ ] open-account-usecase-protocols
+        * [x] open-account-usecase.spec 
+        * [x] open-account-usecase-protocols
       - repositories
         * [x] load-bank-account-by-userid-repository interface
         * [x] open-account-repository interface
