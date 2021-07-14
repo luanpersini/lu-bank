@@ -28,7 +28,7 @@ describe('BankAccount Mongo Repository', () => {
   }
 
   describe('open()', () => {
-    test('should return a bank account on success', async () => {
+    test('should return a bank account on open success', async () => {
       const sut = makeSut()
       const bankAccount = await sut.open(mockBankAccountModel())
       expect(bankAccount).toBeTruthy()
@@ -38,6 +38,19 @@ describe('BankAccount Mongo Repository', () => {
       expect(bankAccount.balance).toBeGreaterThanOrEqual(0)
     })
   })
+  describe('loadByUserId()', () => {
+    test('should return an account on loadByUserId success', async () => {
+      const sut = makeSut()
+      await bankAccountCollection.insertOne(mockBankAccountModel())
+      const bankAccount = await sut.loadByUserId('any_userId')
+      expect(bankAccount).toBeTruthy()
+      expect(bankAccount.userId).toBeTruthy()
+      expect(bankAccount.account).toBe(makeAccountNumber())
+      expect(bankAccount.agency).toEqual(mockAgency())
+      expect(bankAccount.balance).toBeGreaterThanOrEqual(0)
+    })
+  })
+
 // End
 })
 /*
