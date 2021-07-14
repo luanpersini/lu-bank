@@ -1,10 +1,8 @@
 import { adaptRoute } from '@/infra/adapters/express/express-route-adapter'
-import { OpenAccountController } from '@/user-interface/api/controllers/bank-account/open-account/open-account-controller'
+import { makeOpenAccountController } from '@/infra/Factories/bank-account/controllers/open-account/open-account-controller-factory'
 import { auth } from '@/user-interface/common/middlewares'
 import { Router } from 'express'
 
-const openAccountController = new OpenAccountController()
-
 export default (router: Router): void => {
-  router.post('/open-account', auth, adaptRoute(openAccountController))
+  router.post('/open-account', auth, adaptRoute(makeOpenAccountController()))
 }

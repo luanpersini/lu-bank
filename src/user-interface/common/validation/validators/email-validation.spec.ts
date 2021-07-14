@@ -1,6 +1,6 @@
 import { EmailValidation } from './email-validation'
 import { EmailValidator } from '@/user-interface/common/validation/interfaces/email-validator'
-import { mockEmailValidator } from '@/user-interface/common/validation/test'
+import { mockEmailValidator } from '@/user-interface/common/validation/tests.mocks'
 import { InvalidParamError } from '@/user-interface/common/errors'
 
 type SutTypes = {

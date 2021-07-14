@@ -21,32 +21,35 @@
             - controller-name
             * [x] open-account-controller
             * [x] open-account-controller.spec
-            * [ ] open-account-controller-protocols
-              - factories
-              * [ ] open-account-controller-factory            
+            * [x] open-account-controller-protocols
+                                     
 - infra
   - Server
     - config
       - routes
       * [ ] bank-account-routes
       * [ ] bank-account-routes.test
-  - usecases-factory
-    * [ ] bank-account
-     * [ ] usecase-name
+  - Factories
+    - controllers
+      - bank-account
+        * [x] open-account-controller-factory 
+    - usecases
+      - bank-account
+        * [x] open-account-usecase-factory
 - core
   - components
-    - component-name
+    - bank-account
       - domain
-        * [ ] models (entities, aggregates e value objects)
-        - bank-account
+        * [x] bank-account 
+        * [x] agency      
       - usecase-name
-        * [ ] open-account interface
-        * [ ] open-account-usecase
+        * [x] open-account interface
+        * [x] open-account-usecase
         * [ ] open-account-usecase.spec 
         * [ ] open-account-usecase-protocols
       - repositories
-        * [ ] usecase-repository-i
-        * [ ] open-account-repository
+        * [x] load-bank-account-by-userid-repository interface
+        * [x] open-account-repository interface
         - infra.repositories
           * [ ] bank-account-mongo-repository
           * [ ] bank-account-mongo-repository.spec

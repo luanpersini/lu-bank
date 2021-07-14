@@ -32,9 +32,9 @@ describe('User Access Routes', () => {
       await request(app)
         .post('/api/signup')
         .send({
-          name: 'Rodrigo',
+          name: 'any_name',
           cpf: '123.456.789-00',
-          email: 'rodrigo.manguinho@gmail.com',
+          email: 'any_email@mail.com',
           password: '123',
           passwordConfirmation: '123'
         })
@@ -42,9 +42,9 @@ describe('User Access Routes', () => {
       await request(app)
         .post('/api/signup')
         .send({
-          name: 'Rodrigo',
+          name: 'any_name',
           cpf: '123.456.789-00',
-          email: 'rodrigo.manguinho@gmail.com',
+          email: 'any_email@mail.com',
           password: '123',
           passwordConfirmation: '123'
         })

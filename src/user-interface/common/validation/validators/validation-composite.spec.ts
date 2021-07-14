@@ -1,5 +1,5 @@
 import { ValidationComposite } from './validation-composite'
-import { mockValidation } from '@/user-interface/common/validation/test'
+import { mockValidation } from '@/user-interface/common/validation/tests.mocks'
 import { MissingParamError } from '@/user-interface/common/errors'
 import { Validation } from '@/user-interface/common/interfaces'
 
