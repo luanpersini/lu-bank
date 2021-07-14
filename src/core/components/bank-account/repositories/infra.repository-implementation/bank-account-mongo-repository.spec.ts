@@ -1,47 +1,50 @@
-describe('BankAccount Mongo Repository', () => {
-  test('no test yet', async () => {
-    const Spy = 2 + 2
-    expect(Spy).toBe(4)
-  })
-})
-// let bankAccountCollection: Collection
+import { MongoHelper } from '@/infra/persistence/db/helpers/mongo-helper'
+import { makeAccountNumber } from '@/user-interface/common/helpers/utils-helper'
+import { Collection } from 'mongodb'
+import { mockAgency, mockBankAccountModel } from '../../tests.mocks'
+import { BankAccountMongoRepository } from './bank-account-mongo-repository'
+import MockDate from 'mockdate'
 
-/*
-describe('Account Mongo Repository', () => {
+let bankAccountCollection: Collection
+
+describe('BankAccount Mongo Repository', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
+    MockDate.set(new Date())
   })
 
   afterAll(async () => {
     await MongoHelper.disconnect()
+    MockDate.reset()
   })
 
   beforeEach(async () => {
-    accountCollection = await MongoHelper.getCollection('accounts')
-    await accountCollection.deleteMany({})
+    bankAccountCollection = await MongoHelper.getCollection('bank-account')
+    await bankAccountCollection.deleteMany({})
   })
 
-  const makeSut = (): AccountMongoRepository => {
-    return new AccountMongoRepository()
+  const makeSut = (): BankAccountMongoRepository => {
+    return new BankAccountMongoRepository()
   }
 
-  describe('add()', () => {
-    test('Should return an account on add success', async () => {
+  describe('open()', () => {
+    test('should return a bank account on success', async () => {
       const sut = makeSut()
-      const account = await sut.add(mockAddAccountParams())
-      expect(account).toBeTruthy()
-      expect(account.id).toBeTruthy()
-      expect(account.name).toBe('any_name')
-      expect(account.cpf).toBe('any_cpf')
-      expect(account.email).toBe('any_email@mail.com')
-      expect(account.password).toBe('any_password')
+      const bankAccount = await sut.open(mockBankAccountModel())
+      expect(bankAccount).toBeTruthy()
+      expect(bankAccount.userId).toBeTruthy()
+      expect(bankAccount.account).toBe(makeAccountNumber())
+      expect(bankAccount.agency).toEqual(mockAgency())
+      expect(bankAccount.balance).toBeGreaterThanOrEqual(0)
     })
   })
-
+// End
+})
+/*
   describe('loadByEmail()', () => {
-    test('Should return an account on loadByEmail success', async () => {
+    test('should return an account on loadByEmail success', async () => {
       const sut = makeSut()
-      await accountCollection.insertOne(mockAddAccountParams())
+      await accountCollection.insertOne(mockBankAccountModel())
       const account = await sut.loadByEmail('any_email@mail.com')
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
@@ -51,28 +54,15 @@ describe('Account Mongo Repository', () => {
       expect(account.password).toBe('any_password')
     })
 
-    test('Should return null if loadByEmail fails', async () => {
+    test('should return null if loadByEmail fails', async () => {
       const sut = makeSut()
       const account = await sut.loadByEmail('any_email@mail.com')
       expect(account).toBeFalsy()
     })
   })
 
-  describe('updateAccessToken()', () => {
-    test('Should update the account accessToken on updateAccessToken success', async () => {
-      const sut = makeSut()
-      const res = await accountCollection.insertOne(mockAddAccountParams())
-      const fakeAccount = res.ops[0]
-      expect(fakeAccount.accessToken).toBeFalsy()
-      await sut.updateAccessToken(fakeAccount._id, 'any_token')
-      const account = await accountCollection.findOne({ _id: fakeAccount._id })
-      expect(account).toBeTruthy()
-      expect(account.accessToken).toBe('any_token')
-    })
-  })
-
   describe('loadByToken()', () => {
-    test('Should return an account on loadByToken', async () => {
+    test('should return an account on loadByToken', async () => {
       const sut = makeSut()
       await accountCollection.insertOne({
         name: 'any_name',
@@ -90,11 +80,7 @@ describe('Account Mongo Repository', () => {
       expect(account.password).toBe('any_password')
     })
 
-    test('Should return null if loadByToken fails', async () => {
-      const sut = makeSut()
-      const account = await sut.loadByToken('any_token')
-      expect(account).toBeFalsy()
-    })
+     })
   })
 })
 */
