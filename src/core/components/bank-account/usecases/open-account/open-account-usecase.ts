@@ -1,4 +1,3 @@
-import { mockBankAccountModel } from '../../tests.mocks'
 import { BankAccountModel, LoadAccountByUserIdRepository, OpenAccount, OpenAccountRepository } from './open-account-usecase-protocols'
 export class OpenAccountUsecase implements OpenAccount {
   constructor (
@@ -9,9 +8,9 @@ export class OpenAccountUsecase implements OpenAccount {
   async open (userId: string): Promise<BankAccountModel> {
     const bankAccountExists = await this.loadAccountByUserIdRepository.loadByUserId(userId)
     if (!bankAccountExists) {
-      await this.openAccountRepository.open({
+      const newBankAccount = await this.openAccountRepository.open({
         userId: userId,
-        // generate a random 8 digit string with the last 8 digits of the unix seconds
+        // generate a random 8 digit string with the last 8 digits of the unix time
         account: String(new Date().getTime()).substring(String(new Date().getTime()).length - 8, String(new Date().getTime()).length),
         agency: {
           number: '0000-1',
@@ -21,7 +20,7 @@ export class OpenAccountUsecase implements OpenAccount {
         openedAt: new Date(),
         balance: 1000
       })
-      return mockBankAccountModel()
+      return newBankAccount
     }
     return Promise.resolve(null)
   }
