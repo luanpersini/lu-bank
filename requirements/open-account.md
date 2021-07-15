@@ -27,7 +27,7 @@
   - Server
     - config
       - routes
-      * [ ] bank-account-routes
+      * [x] bank-account-routes
       * [ ] bank-account-routes.test
   - Factories
     - controllers
