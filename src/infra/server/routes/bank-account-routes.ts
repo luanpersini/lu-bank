@@ -1,5 +1,6 @@
+import { makeOpenAccountController } from '@/core/components/bank-account/user-interface/api.controllers/open-account/infra.factories/open-account-controller-factory'
 import { adaptRoute } from '@/infra/adapters/express/express-route-adapter'
-import { makeOpenAccountController } from '@/infra/Factories/bank-account/controllers/open-account/open-account-controller-factory'
+
 import { auth } from '@/user-interface/common/middlewares'
 import { Router } from 'express'
 

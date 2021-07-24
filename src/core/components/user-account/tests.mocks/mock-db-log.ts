@@ -1,4 +1,4 @@
-import { LogErrorRepository } from '@/user-interface/common/decorators/log-error-repository'
+import { LogErrorRepository } from '@/user-interface/common/log/log-error-repository'
 
 export const mockLogErrorRepository = (): LogErrorRepository => {
   class LogErrorRepositoryStub implements LogErrorRepository {
