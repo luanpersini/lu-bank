@@ -17,9 +17,7 @@ Delivery em API (rest, graphql) e web (react, vue).
 1. [Criar Conta de Acesso](./requirements/signup.md)
 1. [Acessar o Sistema](./requirements/login.md)
 1. [c](./requirements/a.md)
-1. [c](./requirements/a.md)
-1. [c](./requirements/a.md)
-1. [c](./requirements/a.md)
+
 
 > ## Princípios aplicados:
 * Single Responsibility Principle (SRP)
