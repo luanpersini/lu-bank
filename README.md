@@ -17,49 +17,4 @@ Delivery em API (rest, graphql) e web (react, vue).
 1. [Criar Conta de Acesso](./requirements/signup.md)
 1. [Acessar o Sistema](./requirements/login.md)
 1. [c](./requirements/a.md)
-1. [c](./requirements/a.md)
-1. [c](./requirements/a.md)
-1. [c](./requirements/a.md)
 
-> ## Princípios aplicados:
-* Single Responsibility Principle (SRP)
-* Open Closed Principle (OCP)
-* Liskov Substitution Principle (LSP)
-* Interface Segregation Principle (ISP)
-* Dependency Inversion Principle (DIP)
-* Don't Repeat Yourself (DRY)
-* Composition Over Inheritance
-* Small Commits
-
-> ## Design Patterns aplicados:
-* Factory
-* Adapter
-* Composite
-* Decorator
-* Dependency Injection
-
-> ## Metodologias/designs utilizados:
-* TDD
-* Clean Architecture
-* DDD
-* Conventional Commits
-* GitFlow
-* Modular Design
-* Dependency Diagrams
-* Use Cases
-
-> ## Principais bibliotecas e ferramentas utilizadas:
-* NPM
-* Typescript
-* Git
-* Docker
-* Jest
-* MongoDb
-* Module Alias
-* Bcrypt
-* JsonWebToken
-* Validator
-* Express* 
-* Husky
-* Lint Staged
-* Eslint 
