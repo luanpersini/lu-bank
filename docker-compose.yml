@@ -1,8 +1,8 @@
-version: "4"
+version: "3"
 services:
   mongo:
     container_name: mongo-container
-    image: mongo:4
+    image: mongo:3
     restart: always
     volumes:
       - ./data:/data/db
@@ -21,7 +21,7 @@ services:
       - ./dist/:/usr/src/lu-bank/dist/     
       - ./package.json:/usr/src/lu-bank/package.json
     ports:
-      - "5050:5050"  
+      - "5051:5051"  
       - "9222:9222"
     links:
       - mongo

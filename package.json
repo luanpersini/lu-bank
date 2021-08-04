@@ -7,15 +7,15 @@
   "description": "Portfolio - Aplicativo simulando website bancário",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/infra/servers/express/server.js",
-    "hapi": "node dist/infra/servers/hapi/hapi.js",
+    "start": "node dist/infra/server/server.js",
+    "hapi": "node dist/infra/server/hapi/hapi.js",
     "build": "rimraf dist && tsc -p tsconfig-build.json",
-    "debug": "cross-env NODE_ENV=development nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/infra/servers/express/server.js",
+    "debug": "nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/infra/server/server.js",
     "up": "npm run build && docker-compose up",
     "down": "docker-compose down",
-    "dev": "ts-node-dev --respawn --transpile-only src/infra/servers/express/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/infra/server/server.js",
     "startd": "npm run build && npm debug",
-    "test": "jest --passWithNoTests --silent --runInBand",
+    "test": "jest --passWithNoTests --silent --no-cache --runInBand",
     "test:verb": "jest --passWithNoTests --verbose --runInBand",
     "test:unit": "npm test -- --watchAll -c jest-unit-config.js",
     "test:int": "npm test -- --watchAll -c jest-integration-config.js",
@@ -23,7 +23,6 @@
     "test:ci": "npm test -- --coverage",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
     "clear_jest": "jest --clearCache"
-
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.0.1",
@@ -56,16 +55,14 @@
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },
-  "dependencies": {    
+  "dependencies": {
     "bcrypt": "^5.0.1",
-    "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1",    
+    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
     "mongodb": "^3.6.10",
-    "nodemon": "^2.0.12",    
-    "pg": "^8.6.0",
+    "nodemon": "^2.0.12",
     "validator": "^13.6.0"
   },
   "engines": {
