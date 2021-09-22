@@ -17,6 +17,7 @@ Delivery em API (rest, graphql) e web (react, vue).
 1. [Criar Conta de Acesso](./requirements/signup.md)
 1. [Acessar o Sistema](./requirements/login.md)
 1. [c](./requirements/a.md)
+<<<<<<< HEAD
 
 
 > ## Princípios aplicados:
@@ -45,19 +46,6 @@ Delivery em API (rest, graphql) e web (react, vue).
 * Modular Design
 * Dependency Diagrams
 * Use Cases
+=======
+>>>>>>> 8013c27388d0a2889bcc8d1734dd1daac043600c
 
-> ## Principais bibliotecas e ferramentas utilizadas:
-* NPM
-* Typescript
-* Git
-* Docker
-* Jest
-* MongoDb
-* Module Alias
-* Bcrypt
-* JsonWebToken
-* Validator
-* Express* 
-* Husky
-* Lint Staged
-* Eslint 
