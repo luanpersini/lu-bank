@@ -6,4 +6,4 @@ data
 .husky
 !src/data
 .env
-false
+env.ts
